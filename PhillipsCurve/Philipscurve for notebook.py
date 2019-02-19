@@ -1,4 +1,4 @@
-#%matplotlib inline
+%matplotlib inline
 from ipywidgets import fixed, FloatSlider, interact, interactive, interact_manual
 import matplotlib.pyplot as plt
 import matplotlib.widgets as wig
@@ -12,21 +12,16 @@ def philip_c(nat_un_em, ex_inflation, alpha,pv):
         inflation and unemployment in the short run. The deriviations are from Mankiew and Taylor's macro economics. 
         
         Args:
-            nat_un_em (float) : The natural rate of unemployment in percent (2=2%). No default value given here, but when 
-                                the interact function is called, the default value of natural rate of unemployment 
-                                is 2. 
-            ex_inflation (float) : The expectet inflation rate in percent (2=2%). No default value given here, but when 
-                                the interact function is called, the default value of natural rate of unemployment 
-                                is 2. 
-            alpha (float) : The coeffecient for the trade-off between inflation and unemployment. No default value given here, but when 
-                                the interact function is called, the default value of natural rate of unemployment 
-                                is 1.
+            alpha (float) : The coeffecient for the trade-off between inflation and unemployment. No default value given here, but when the interact function is called, the default value of natural rate of unemployment is 1.
+            ex_inflation (float) : The expectet inflation rate in percent (2=2%). No default value given here, but when the interact function is called, the default value of natural rate of unemployment is 2. 
+            nat_un_em (float) : The natural rate of unemployment in percent (2=2%). No default value given here, but when the interact function is called, the default value of natural rate of unemployment is 2. 
             pv (float) : The value of inflation where unemployment should be calculated, and vice versa
-        Returns: 
+      
+      Returns: 
                 returns two return values. 
                 un_em (float) : The unemployment rate  in percent (2=2%), given the 3 parameters and inflation = 0.2
                 inflation (float) : The inflation rate in percent (2=2%), given the 3 parameters and unemployment = 0.2
-        """
+    """
     inflation = pv
     un_em = nat_un_em + (ex_inflation - inflation)/alpha
     unemployment = pv
@@ -41,16 +36,10 @@ def pc_plot(nat_un_em,ex_inflation,alpha=1,pv=0.2):
         The function plots the unemployment and inflation, given the 3 paramaters, at a given level of the other (pv)
         
         Args:
-            nat_un_em (float) : The natural rate of unemployment in percent (2=2%). No default value given, but when 
-                                the interact function is called, the default value of natural rate of unemployment 
-                                is 2. 
-            ex_inflation (float) : The expectet inflation rate in percent (2=2%). No default value given, but when 
-                                the interact function is called, the default value of natural rate of unemployment 
-                                is 2. 
             alpha (float) : The coeffecient for the trade-off between inflation and unemployment. A default value of 1 is given
-        
-            pv (float) : The value of inflation where unemployment should be calculated, and vice versa. A default value of 0.2
-                        is given for a nice visualization. 
+            ex_inflation (float) : The expectet inflation rate in percent (2=2%). No default value given, but when the interact function is called, the default value of natural rate of unemployment is 2. 
+            nat_un_em (float) : The natural rate of unemployment in percent (2=2%). No default value given, but when the interact function is called, the default value of natural rate of unemployment is 2. 
+            pv (float) : The value of inflation where unemployment should be calculated, and vice versa. A default value of 0.2 is given for a nice visualization. 
             
         Returns: 
             A plot
@@ -61,9 +50,3 @@ def pc_plot(nat_un_em,ex_inflation,alpha=1,pv=0.2):
     plt.ylabel("Inflation")
     plt.xlim(0,8)
     plt.ylim(0,8)
-
-style = {'description_width': 'initial'}
-exi_slider = FloatSlider(min=0,max=10,value=2,step=0.5,description = "Expected inflation",style=style)
-alp_slider = FloatSlider(min=0.1,max=3,value=1,step=0.2,description = "Alpha value for trade-off",style=style)
-nue_slider = FloatSlider(min=0,max=7,value=2,step=0.5, description ="Natural unemployment",style=style)
-interact(pc_plot, ex_inflation =  exi_slider ,nat_un_em = nue_slider, alpha =  alp_slider,pv=fixed(0.2))
