@@ -9,12 +9,20 @@ def philip_c(nat_un_em, ex_inflation, alpha,pv):
         
         The values calculated, are the values for inflation and unemployment, given that the other is 0.2.
         The idea is, that the values can be plottet as a straihgt line that shows the relationship between 
-        inflation and unemployment in the short run. The deriviations are from Mankiew and Taylor's macro economics. 
+        inflation and unemployment in the short run. The deriviations are from Mankiew and Taylor's macro
+        economics. 
         
         Args:
-            alpha (float) : The coeffecient for the trade-off between inflation and unemployment. No default value given here, but when the interact function is called, the default value of natural rate of unemployment is 1.
-            ex_inflation (float) : The expectet inflation rate in percent (2=2%). No default value given here, but when the interact function is called, the default value of natural rate of unemployment is 2. 
-            nat_un_em (float) : The natural rate of unemployment in percent (2=2%). No default value given here, but when the interact function is called, the default value of natural rate of unemployment is 2. 
+            alpha (float) : The coeffecient for the trade-off between inflation and unemployment. 
+            No default value given here, but when the interact function is called, 
+            the default value of natural rate of unemployment is 1.
+            
+            ex_inflation (float) : The expectet inflation rate in percent (2=2%). No default value given,
+            but when the interact function is called, the default value of natural rate of unemployment is 2. 
+            
+            nat_un_em (float) : The natural rate of unemployment in percent (2=2%). No default value given,
+            but when the interact function is called, the default value of natural rate of unemployment is 2. 
+            
             pv (float) : The value of inflation where unemployment should be calculated, and vice versa
       
       Returns: 
